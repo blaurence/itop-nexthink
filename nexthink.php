@@ -19,7 +19,6 @@ $oP->set_base(utils::GetAbsoluteUrlAppRoot().'pages/');
 
 $sName = $_GET["name"];
 
-//utils::GetAbsoluteUrlAppRoot();
 // have to retrieve module name
 $module_name = "nexthink";
 
@@ -27,7 +26,7 @@ try
 {
 
         $oP->add('<div class="object-details-header">');
-        $oP->add('<div class="object-icon"><img src="http://itopdev.ght-espo.lan/env-production/nexthink/images/nexthink.png" style="vertical-align:middle;"></div>');
+        $oP->add('<div class="object-icon"><img src="'.utils::GetAbsoluteUrlAppRoot().'/env-production/nexthink/images/nexthink.png" style="vertical-align:middle;"></div>');
         $oP->add('<div class="object-infos">');
         $oP->add('<h1 class="object-name">Détail de la machine : <span class="hilite">'.$sName.'</span></h1>');
         $oP->add('</div>');    

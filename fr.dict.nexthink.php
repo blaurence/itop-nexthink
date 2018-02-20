@@ -2,7 +2,7 @@
 /**
  * Localized data
  *
- * @copyright   Copyright (C) 2013 Combodo
+ * @copyright   Copyright (C) 2017 Benjamin LAURENCE
  * @license     http://opensource.org/licenses/AGPL-3.0
  */
 

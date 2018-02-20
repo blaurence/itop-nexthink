@@ -1,16 +1,10 @@
 <?php
 
-/* 
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
 class NeXthinkClient {
     
-    private $nxt_url = "https://lxlogimetrielocal.chsaintlouis.chi:1671/2/query";
-    private $nxt_username = "laurenceb";
-    private $nxt_password = "laurenceb";
+    private $sNxt_url; // = "https://lxlogimetrielocal.chsaintlouis.chi:1671/2/query";
+    private $sNxt_username; // = "laurenceb";
+    private $sNxt_password; // = "laurenceb";
     
     private $nxt_query;
     
@@ -22,6 +16,11 @@ class NeXthinkClient {
     const FORMAT_JSON = "json";
 
     public function __construct() {
+        
+        //$this->host = phpEwsConf::$host;
+        $this->sNxt_url = MetaModel::GetModuleSetting('nexthink', 'nxt_host', '');
+        $this->sNxt_username = MetaModel::GetModuleSetting('nexthink', 'nxt_username', '');
+        $this->sNxt_password = MetaModel::GetModuleSetting('nexthink', 'nxt_password', '');
         
     }
     
@@ -40,10 +39,10 @@ class NeXthinkClient {
         $this->aCurlOpt = array(
                 CURLOPT_RETURNTRANSFER	=> true,     // return the content of the request
                 CURLOPT_HEADER		=> false,    // don't return the headers in the output
-                CURLOPT_USERPWD             => 'laurenceb:laurenceb',
+                CURLOPT_USERPWD         => $this->sNxt_username.':'.$this->sNxt_password,
                 CURLOPT_SSL_VERIFYHOST	=> 0,   	 // Disabled SSL Cert checks
                 CURLOPT_SSL_VERIFYPEER	=> 0,   	 // Disabled SSL Cert checks
-                CURLOPT_URL                 => $this->nxt_url."?".http_build_query($data),
+                CURLOPT_URL             => $this->sNxt_url."?".http_build_query($data),
         );
         
         $ch = curl_init();

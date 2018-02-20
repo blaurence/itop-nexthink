@@ -49,7 +49,11 @@ SetupWebPage::AddModule(
 		// Default settings
 		//
 		'settings' => array(
-			// Module specific settings go here, if any
+                            // Default parameter ...
+                            'nxt_host'     => 'https://host:port/2/query',
+                            'nxt_username' => 'laurenceb',
+                            'nxt_password' => 'password',
+
 		),
 	)
 );
